@@ -8,3 +8,7 @@ mkdir ~/Desktop/math_papers; cd ~/Desktop/math_papers; curl http://www.maths.cam
 
 # Ghostscript command to join PDFs. Useful when you have one pdf per lecture, and would rather have one per course
 gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=all.pdf file1.pdf file2.pdf ...
+
+# Python script installed on Mac OS X Tiger and onwards by default to join pdfs.
+# Credit: http://gotofritz.net/blog/howto/joining-pdf-files-in-os-x-from-the-command-line/
+"/System/Library/Automator/Combine PDF Pages.action/Contents/Resources/join.py" -o OUTPUT.pdf INPUT1.pdf INPUT2.pdf /PATH/TO/A/WHOLE/DIR/*.pdf
