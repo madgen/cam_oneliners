@@ -1,3 +1,14 @@
+# This makefile is designed to allow compilation and packaging of the CST1A Java ticks.
+#
+# Usage: make [option] TICK=tickX ENTRY=ClassName INCLUDE=Something.jar CRSID=spqr23
+#
+# By changing these declarations at the head of the file, you can change the default
+# values for the named options should you choose to omit them.  The CRSID declaration
+# is left in as an example.
+#
+# Makefile created by Daniel Ward (dw445), released under the CC-BY 3.0 license.
+# Basically, please just leave my name in this comment ;).
+# Full license details, if necessary: http://creativecommons.org/licenses/by/3.0/
 TICK := ""
 ENTRY := ""
 INCLUDE := ""
@@ -5,7 +16,9 @@ CRSID := "dw445"
 
 ifeq ($(TICK), "")
 %:
-	@:;echo "No tick specified."
+	@:;echo "No tick specified.  Usage:"
+	@:;echo "\tmake [option] TICK=tickX ENTRY=ClassName INCLUDE=Something.jar CRSID=spqr23"
+	@:;echo "Possible values for option are build, rebuild, clean and package"
 else
 build:
 	@:;javac -cp $(INCLUDE):. uk/ac/cam/$(CRSID)/$(TICK)/*.java
