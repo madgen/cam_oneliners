@@ -19,10 +19,10 @@
 # Ideally needs refactoring but I'm struggling to provide that.  If statement
 # can't be extracted because of the \w; colours don't seem to work.  Maybe the
 # inserted commands?
-PS1='\[\e[1;35m\]\u@\h\[\e[0;30m\]:\[\e[0;34m\]$(if $isgitrepo; then echo '\
-'$(git rev-parse --show-toplevel | xargs basename)$(git branch | grep "^\* " |'\
-' sed "s/^\* /#/"); else echo "\w"; fi)\[\e[0;30m\]\$ '
-
+PS1='\[\e[1;35m\]\u@\h\[\e[0;30m\]:\[\e[0;34m\]$(if [ -d .git -o -n $(git '\
+'rev-parse --show-toplevel 2>/dev/null) ]; then echo $(git rev-parse'\
+' --show-toplevel | xargs basename)$(git branch | grep "^\* " | sed'\
+' "s/^\* /#/"); else echo "\w"; fi)\[\e[0;30m\]\$ '
 
 ################################################################################
 # Begin section: COMMAND ALIASES.  Contains alternative command names and      #
