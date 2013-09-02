@@ -3,6 +3,10 @@
 # Useful bash scripts in Cambridge
 # -----------------
 
+# Use LDAP to look at info on Cambridge students (not sure but I guess only works in Cambridge network)
+# Usage: replace <CRSId> with a valid CRSId
+ldapsearch -x -LLL -H ldaps://ldap.lookup.cam.ac.uk -b "ou=people, o=University of Cambridge,dc=cam,dc=ac,dc=uk" uid=<CRSId>
+
 # Curl command that downloads Natsci Math IA papers from 2001 to 2012 into a folder named math_papers in desktop.
 mkdir ~/Desktop/math_papers; cd ~/Desktop/math_papers; curl http://www.maths.cam.ac.uk/undergradnst/pastpapers/20[01-12]/PaperNST_IA_[1-2].pdf -o "Math20#1-#2.pdf"
 
