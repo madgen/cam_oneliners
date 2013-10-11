@@ -1,6 +1,12 @@
-# This makefile is designed to allow compilation and packaging of the CST1A Java ticks.
+# This makefile is designed to allow compilation and packaging of the CST1B Java ticks.
+# Rename it to `makefile` and put it in the directory outside of your uk/ folder
 #
 # Usage: make [option] TICK=tickX ENTRY=ClassName INCLUDE=Something.jar CRSID=spqr23
+#
+# For additional clarification, ENTRY should be set to the name of the class containing
+# your program's main entry point (i.e. public static void main(String[] args))
+#
+# Some of the parameters are optional.  E.g. ENTRY is only used for `package`
 #
 # By changing these declarations at the head of the file, you can change the default
 # values for the named options should you choose to omit them.  The CRSID declaration
@@ -12,7 +18,7 @@
 TICK := ""
 ENTRY := ""
 INCLUDE := ""
-CRSID := "dw445"
+CRSID := ""
 
 ifeq ($(TICK), "")
 %:
@@ -26,5 +32,5 @@ rebuild: clean build
 clean:      
 	@:;cd uk/ac/cam/$(CRSID)/$(TICK);rm `ls | grep -P '(class$$)|(~$$)'`
 package:
-	@:;jar cfe $(CRSID)-$(TICK).jar uk.ac.cam.$(CRSID).$(TICK).$(ENTRY) uk/ac/cam/$(CRSID)/$(TICK)/*
+	@:;jar cfe $(CRSID)-$(TICK).jar uk.ac.cam.$(CRSID).fjava.$(TICK).$(ENTRY) uk/ac/cam/$(CRSID)/fjava/$(TICK)/*
 endif
